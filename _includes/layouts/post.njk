@@ -4,6 +4,23 @@ layout: layouts/base.njk
 {# Only include the syntax highlighter CSS on blog posts, included with the CSS per-page bundle #}
 {%- css %}{% include "node_modules/prismjs/themes/prism-okaidia.css" %}{% endcss %}
 {%- css %}{% include "public/css/prism-diff.css" %}{%- endcss %}
+
+<script src="https://giscus.app/client.js"
+        data-repo="StructSeeker/structseeker.github.io"
+        data-repo-id="R_kgDOM6NujQ"
+        data-category="Posts"
+        data-category-id="DIC_kwDOM6Nujc4Ci_uO"
+        data-mapping="url"
+        data-strict="1"
+        data-reactions-enabled="1"
+        data-emit-metadata="0"
+        data-input-position="top"
+        data-theme="light"
+        data-lang="en"
+        crossorigin="anonymous"
+        async>
+</script>
+
 <h1>{{ title }}</h1>
 
 <ul class="post-metadata">
@@ -16,21 +33,6 @@ layout: layouts/base.njk
 
 {{ content | safe }}
 
-<script src="https://giscus.app/client.js"
-        data-repo="StructSeeker/structseeker.github.io"
-        data-repo-id="R_kgDOM6NujQ"
-        data-category="Posts"
-        data-category-id="DIC_kwDOM6Nujc4Ci_uO"
-        data-mapping="url"
-        data-strict="1"
-        data-reactions-enabled="1"
-        data-emit-metadata="0"
-        data-input-position="top"
-        data-theme="preferred_color_scheme"
-        data-lang="en"
-        crossorigin="anonymous"
-        async>
-</script>
 
 {%- if collections.posts %}
 {%- set previousPost = collections.posts | getPreviousCollectionItem %}
