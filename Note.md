@@ -2,6 +2,10 @@
 https://rknight.me/blog/using-pagefind-with-eleventy-for-search/
 
 
+## PageCrypt
+https://github.com/Greenheart/pagecrypt
+
+
 ## giscus component (Done)
 
 ```html
