@@ -117,10 +117,11 @@ export default async function(eleventyConfig) {
 	// eleventyConfig.setServerPassthroughCopyBehavior("passthrough");
 
 
-	//pagefind
-	eleventyConfig.on('eleventy.after', () => {
-		execSync(`npx pagefind --source _site --glob \"**/*.html\"`, { encoding: 'utf-8' })
-	  })
+	//pagefind Use `npm run pagefind` instead
+	
+	// eleventyConfig.on('eleventy.after', () => {
+	// 	execSync(`npx pagefind --site _site --glob \"**/*.html\"`, { encoding: 'utf-8' })
+	//   })
 };
 
 export const config = {

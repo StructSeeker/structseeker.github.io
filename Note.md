@@ -1,13 +1,16 @@
-## Use Pagefind
-https://rknight.me/blog/using-pagefind-with-eleventy-for-search/
+# Notes
 
+## Use Pagefind
+
+[https://rknight.me/blog/using-pagefind-with-eleventy-for-search/]
 
 ## PageCrypt
-https://github.com/Greenheart/pagecrypt
+
+[https://github.com/Greenheart/pagecrypt]  
 
 ## domi18n
-https://github.com/ruyadorno/dom-i18n
 
+[https://github.com/ruyadorno/dom-i18n]  
 
 ## giscus component (Done)
 

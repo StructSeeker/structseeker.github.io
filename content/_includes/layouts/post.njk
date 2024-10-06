@@ -6,6 +6,8 @@ layout: layouts/base.njk
 {%- css %}{% include "public/css/prism-diff.css" %}{%- endcss %}
 
 
+<article data-pagefind-body>
+
 <h1>{{ title }}</h1>
 
 <ul class="post-metadata">
@@ -16,7 +18,7 @@ layout: layouts/base.njk
 	{%- endfor %}
 </ul>
 
-<article data-pagefind-body>
+
 
 {{ content | safe }}
 
