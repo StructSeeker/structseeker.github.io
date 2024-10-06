@@ -120,6 +120,7 @@ export const config = {
 		"html",
 		"liquid",
 		"11ty.js",
+		'js',
 	],
 
 	// Pre-process *.md files with: (default: `liquid`)
