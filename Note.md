@@ -31,3 +31,8 @@
         async>
 </script>
 ```
+
+## Hypothesis Annotation
+```html
+<script src="https://hypothes.is/embed.js" async></script>
+```
