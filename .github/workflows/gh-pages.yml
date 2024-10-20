@@ -38,7 +38,7 @@ jobs:
 
 
       - run: npm install
-      - run: npm run pagefind
+      - run: npm run ghpagefind
       - run: npm run build-ghpages
 
       - name: Deploy
