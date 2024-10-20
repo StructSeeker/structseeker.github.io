@@ -5,7 +5,7 @@
   <subtitle>This is a longer description about your blog.</subtitle>
   <link href="https://example.com/feed/feed.xml" rel="self" />
   <link href="https://example.com/" />
-  <updated>2024-10-20T01:15:00Z</updated>
+  <updated>2024-10-20T01:23:39Z</updated>
   <id>https://example.com/</id>
   <author>
     <name>Your Name</name>
@@ -13,7 +13,7 @@
   <entry>
     <title></title>
     <link href="https://example.com/blog/typst.test/" />
-    <updated>2024-10-20T01:15:00Z</updated>
+    <updated>2024-10-20T01:23:39Z</updated>
     <id>https://example.com/blog/typst.test/</id>
     <content type="html">
 &lt;!doctype html&gt;
@@ -109,7 +109,7 @@
   <entry>
     <title>use typst</title>
     <link href="https://example.com/blog/fifthpost/" />
-    <updated>2024-10-20T01:15:00Z</updated>
+    <updated>2024-10-20T01:23:39Z</updated>
     <id>https://example.com/blog/fifthpost/</id>
     <content type="html">&lt;h1 id=&quot;hello&quot;&gt;Hello&lt;/h1&gt;
 </content>
