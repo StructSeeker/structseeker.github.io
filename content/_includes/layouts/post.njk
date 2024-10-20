@@ -1,11 +1,20 @@
 ---
 layout: layouts/base.njk
 ---
+
+{% block head_extensions %}
+{% if use_typst %}
+        {% include "partials/typst.njk"%}
+{% endif %}
+
+{% include "partials/hypothesis.njk" %}
+{% endblock %}
+
 {# Only include the syntax highlighter CSS on blog posts, included with the CSS per-page bundle #}
 {%- css %}{% include "node_modules/prismjs/themes/prism-okaidia.css" %}{% endcss %}
 {%- css %}{% include "public/css/prism-diff.css" %}{%- endcss %}
 
-{% include "partials/hypothesis.njk" %}
+
 
 <article data-pagefind-body>
 
@@ -20,8 +29,12 @@ layout: layouts/base.njk
 </ul>
 
 
+{% if use_typst %}
+        <div id="typst_display"></div>
+{% endif %}
 
-{{ content | safe }}
+        {{ content | safe }}
+
 
 </article>
 

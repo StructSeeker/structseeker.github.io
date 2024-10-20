@@ -132,15 +132,20 @@ export const config = {
 		"njk",
 		"html",
 		"liquid",
+
 		"11ty.js",
 		'js',
+
+		'typ',
+
+		'svg'
 	],
 
 	// Pre-process *.md files with: (default: `liquid`)
 	markdownTemplateEngine: "njk",
 
 	// Pre-process *.html files with: (default: `liquid`)
-	htmlTemplateEngine: "njk",
+	// htmlTemplateEngine: "njk",
 
 	// These are all optional:
 	dir: {

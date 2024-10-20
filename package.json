@@ -50,6 +50,7 @@
 		"zod-validation-error": "^3.3.1"
 	},
 	"dependencies": {
+		"@myriaddreamin/typst.ts": "^0.5.0-rc8",
 		"@zachleat/heading-anchors": "^1.0.1"
 	}
 }
