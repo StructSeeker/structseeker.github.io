@@ -6,6 +6,8 @@ import { eleventyImageTransformPlugin } from "@11ty/eleventy-img";
 
 import pluginFilters from "./_config/filters.js";
 
+import mathjaxPlugin from 'eleventy-plugin-mathjax'
+// const mathjaxPlugin = require("eleventy-plugin-mathjax");
 
 import { execSync } from 'child_process';
 // const { execSync } = require('child_process')
@@ -108,6 +110,13 @@ export default async function(eleventyConfig) {
 		return (new Date()).toISOString();
 	});
 
+	eleventyConfig.addPlugin(mathjaxPlugin, {
+		output: "chtml",
+		chtml: {
+		  fontURL:
+			"https://cdn.jsdelivr.net/npm/mathjax@3/es5/output/chtml/fonts/woff-v2",
+		},
+	  });
 	// Features to make your build faster (when you need them)
 
 	// If your passthrough copy gets heavy and cumbersome, add this line

@@ -3,10 +3,6 @@ layout: layouts/base.njk
 ---
 
 {% block head_extensions %}
-{% if use_typst %}
-        {% include "partials/typst.njk"%}
-{% endif %}
-
 {% include "partials/hypothesis.njk" %}
 {% endblock %}
 
@@ -29,9 +25,7 @@ layout: layouts/base.njk
 </ul>
 
 
-{% if use_typst %}
-        <div id="typst_display"></div>
-{% endif %}
+
 
         {{ content | safe }}
 
