@@ -5,113 +5,19 @@
   <subtitle>This is a longer description about your blog.</subtitle>
   <link href="https://example.com/feed/feed.xml" rel="self" />
   <link href="https://example.com/" />
-  <updated>2024-10-20T02:30:36Z</updated>
+  <updated>2024-10-22T02:02:49Z</updated>
   <id>https://example.com/</id>
   <author>
     <name>Your Name</name>
   </author>
   <entry>
-    <title></title>
-    <link href="https://example.com/blog/typst.test/" />
-    <updated>2024-10-20T02:30:36Z</updated>
-    <id>https://example.com/blog/typst.test/</id>
-    <content type="html">
-&lt;!doctype html&gt;
-&lt;html lang=&quot;en&quot;&gt;
-  &lt;head&gt;
-    &lt;meta charset=&quot;UTF-8&quot;&gt;
-    &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;&gt;
-    &lt;title&gt;Svg Document&lt;/title&gt;
-    &lt;script type=&quot;module&quot; src=&quot;https://cdn.jsdelivr.net/npm/@myriaddreamin/typst.ts/dist/esm/contrib/all-in-one-lite.bundle.js&quot; id=&quot;typst&quot;&gt;&lt;/script&gt;
-  &lt;/head&gt;
-  &lt;body&gt;
-    &lt;button id=&quot;export&quot;&gt;Export To PDF&lt;/button&gt;
-    &lt;textarea id=&quot;input&quot;&gt;Hello, Typst!&lt;/textarea&gt;
-    &lt;div id=&quot;content&quot;&gt;&lt;/div&gt;
-    &lt;script&gt;
-      const input = document.getElementById(&#39;input&#39;);
-      const contentDiv = document.getElementById(&#39;content&#39;);
-
-      const previewSvg = mainContent =&gt; {
-        $typst.svg({ mainContent }).then(svg =&gt; {
-          console.log(`rendered! SvgElement { len: ${svg.length} }`);
-          // append svg text
-          contentDiv.innerHTML = svg;
-
-          const svgElem = contentDiv.firstElementChild;
-          const width = Number.parseFloat(svgElem.getAttribute(&#39;width&#39;));
-          const height = Number.parseFloat(svgElem.getAttribute(&#39;height&#39;));
-          const cw = document.body.clientWidth - 40;
-          svgElem.setAttribute(&#39;width&#39;, cw);
-          svgElem.setAttribute(&#39;height&#39;, (height * cw) / width);
-        });
-      };
-
-      const exportPdf = mainContent =&gt;
-        $typst.pdf({ mainContent }).then(pdfData =&gt; {
-          var pdfFile = new Blob([pdfData], { type: &#39;application/pdf&#39; });
-
-          // Create element with &lt;a&gt; tag
-          const link = document.createElement(&#39;a&#39;);
-
-          // Add file content in the object URL
-          link.href = URL.createObjectURL(pdfFile);
-
-          // Add file name
-          link.target = &#39;_blank&#39;;
-
-          // Add click event to &lt;a&gt; tag to save file.
-          link.click();
-          URL.revokeObjectURL(link.href);
-        });
-
-      document.getElementById(&#39;typst&#39;).addEventListener(&#39;load&#39;, function () {
-        $typst.setCompilerInitOptions({
-          getModule: () =&gt;
-            &#39;https://cdn.jsdelivr.net/npm/@myriaddreamin/typst-ts-web-compiler/pkg/typst_ts_web_compiler_bg.wasm&#39;,
-        });
-        $typst.setRendererInitOptions({
-          getModule: () =&gt;
-            &#39;https://cdn.jsdelivr.net/npm/@myriaddreamin/typst-ts-renderer/pkg/typst_ts_renderer_bg.wasm&#39;,
-        });
-
-        document.getElementById(&#39;export&#39;).onclick = () =&gt; exportPdf(input.value);
-        input.oninput = () =&gt; {
-          previewSvg(input.value);
-          input.style.height = &#39;5px&#39;;
-          input.style.height = input.scrollHeight + &#39;px&#39;;
-        };
-        previewSvg(input.value);
-      });
-    &lt;/script&gt;
-    &lt;style&gt;
-      body {
-        margin: 0px;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-      }
-      #export {
-        width: 100%;
-        height: 20px;
-      }
-      #input {
-        width: 100%;
-        margin: 0;
-        padding: 0;
-        border-width: 0;
-        height: auto;
-      }
-    &lt;/style&gt;
-  &lt;/body&gt;
-&lt;/html&gt;</content>
-  </entry>
-  <entry>
     <title>use typst</title>
     <link href="https://example.com/blog/fifthpost/" />
-    <updated>2024-10-20T02:30:36Z</updated>
+    <updated>2024-10-22T02:02:49Z</updated>
     <id>https://example.com/blog/fifthpost/</id>
-    <content type="html">&lt;h1 id=&quot;hello&quot;&gt;Hello&lt;/h1&gt;
+    <content type="html">
+&lt;html&gt;&lt;head&gt;&lt;/head&gt;&lt;body&gt;&lt;h1 id=&quot;hello&quot;&gt;Hello&lt;/h1&gt;
+&lt;/body&gt;&lt;/html&gt;
 </content>
   </entry>
   <entry>
@@ -119,7 +25,8 @@
     <link href="https://example.com/blog/testpost/" />
     <updated>2024-10-19T14:28:13Z</updated>
     <id>https://example.com/blog/testpost/</id>
-    <content type="html">&lt;h1 id=&quot;test&quot;&gt;Test&lt;/h1&gt;
+    <content type="html">
+&lt;html&gt;&lt;head&gt;&lt;/head&gt;&lt;body&gt;&lt;h1 id=&quot;test&quot;&gt;Test&lt;/h1&gt;
 &lt;p&gt;&lt;canvas&gt; &lt;/canvas&gt;&lt;/p&gt;
 &lt;script type=&quot;module&quot;&gt;
 
@@ -135,6 +42,7 @@ fetch(&quot;./resume.svg&quot;)
     )
 
 &lt;/script&gt;
+&lt;/body&gt;&lt;/html&gt;
 </content>
   </entry>
   <entry>
@@ -142,11 +50,13 @@ fetch(&quot;./resume.svg&quot;)
     <link href="https://example.com/blog/fourthpost/" />
     <updated>2018-09-30T00:00:00Z</updated>
     <id>https://example.com/blog/fourthpost/</id>
-    <content type="html">&lt;p&gt;Leverage agile frameworks to provide a robust synopsis for high level overviews. Iterative approaches to corporate strategy foster collaborative thinking to further the overall value proposition. Organically grow the holistic world view of disruptive innovation via workplace diversity and empowerment.&lt;/p&gt;
+    <content type="html">
+&lt;html&gt;&lt;head&gt;&lt;/head&gt;&lt;body&gt;&lt;p&gt;Leverage agile frameworks to provide a robust synopsis for high level overviews. Iterative approaches to corporate strategy foster collaborative thinking to further the overall value proposition. Organically grow the holistic world view of disruptive innovation via workplace diversity and empowerment.&lt;/p&gt;
 &lt;p&gt;Bring to the table win-win survival strategies to ensure proactive domination. At the end of the day, going forward, a new normal that has evolved from generation X is on the runway heading towards a streamlined cloud solution. User generated content in real-time will have multiple touchpoints for offshoring.&lt;/p&gt;
 &lt;picture&gt;&lt;source type=&quot;image/avif&quot; srcset=&quot;https://example.com/blog/fourthpost/IdthKOzqFA-350.avif 350w&quot;&gt;&lt;source type=&quot;image/webp&quot; srcset=&quot;https://example.com/blog/fourthpost/IdthKOzqFA-350.webp 350w&quot;&gt;&lt;img loading=&quot;lazy&quot; decoding=&quot;async&quot; src=&quot;https://example.com/blog/fourthpost/IdthKOzqFA-350.png&quot; alt=&quot;A possum parent and two possum kids hanging from the iconic red balloon&quot; width=&quot;350&quot; height=&quot;685&quot;&gt;&lt;/picture&gt;
 &lt;h2 id=&quot;section-header&quot;&gt;Section Header&lt;/h2&gt;
 &lt;p&gt;Capitalize on low hanging fruit to identify a ballpark value added activity to beta test. Override the digital divide with additional clickthroughs from DevOps. Nanotechnology immersion along the information highway will close the loop on focusing solely on the bottom line.&lt;/p&gt;
+&lt;/body&gt;&lt;/html&gt;
 </content>
   </entry>
   <entry>
@@ -154,7 +64,8 @@ fetch(&quot;./resume.svg&quot;)
     <link href="https://example.com/blog/thirdpost/" />
     <updated>2018-08-24T00:00:00Z</updated>
     <id>https://example.com/blog/thirdpost/</id>
-    <content type="html">&lt;p&gt;Leverage agile frameworks to provide a robust synopsis for high level overviews. Iterative approaches to corporate strategy foster collaborative thinking to further the overall value proposition. Organically grow the holistic world view of disruptive innovation via workplace diversity and empowerment.&lt;/p&gt;
+    <content type="html">
+&lt;html&gt;&lt;head&gt;&lt;/head&gt;&lt;body&gt;&lt;p&gt;Leverage agile frameworks to provide a robust synopsis for high level overviews. Iterative approaches to corporate strategy foster collaborative thinking to further the overall value proposition. Organically grow the holistic world view of disruptive innovation via workplace diversity and empowerment.&lt;/p&gt;
 &lt;h2 id=&quot;code&quot;&gt;Code&lt;/h2&gt;
 &lt;h3 id=&quot;this-is-a-very-long-heading-that-i-want-to-wrap-this-is-a-very-long-heading-that-i-want-to-wrap-this-is-a-very-long-heading-that-i-want-to-wrap-this-is-a-very-long-heading-that-i-want-to-wrap&quot;&gt;This is a very long heading that I want to wrap This is a very long heading that I want to wrap This is a very long heading that I want to wrap This is a very long heading that I want to wrap&lt;/h3&gt;
 &lt;p&gt;Bring to the table win-win survival strategies to ensure proactive domination. At the end of the day, going forward, a new normal that has evolved from generation X is on the runway heading towards a streamlined cloud solution. User generated content in real-time will have multiple touchpoints for offshoring.&lt;/p&gt;
@@ -179,6 +90,7 @@ console.log(&#39;Test&#39;);
 &lt;/code&gt;&lt;/pre&gt;
 &lt;h2 id=&quot;section-header&quot;&gt;Section Header&lt;/h2&gt;
 &lt;p&gt;Capitalize on low hanging fruit to identify a ballpark value added activity to beta test. Override the digital divide with additional clickthroughs from DevOps. Nanotechnology immersion along the information highway will close the loop on focusing solely on the bottom line.&lt;/p&gt;
+&lt;/body&gt;&lt;/html&gt;
 </content>
   </entry>
   <entry>
@@ -186,12 +98,695 @@ console.log(&#39;Test&#39;);
     <link href="https://example.com/blog/secondpost/" />
     <updated>2018-07-04T00:00:00Z</updated>
     <id>https://example.com/blog/secondpost/</id>
-    <content type="html">&lt;p&gt;Leverage agile frameworks to provide a robust synopsis for high level overviews. Iterative approaches to corporate strategy foster collaborative thinking to further the overall value proposition. Organically grow the holistic world view of disruptive innovation via workplace diversity and empowerment.&lt;/p&gt;
+    <content type="html">
+&lt;html&gt;&lt;head&gt;&lt;style id=&quot;MJX-CHTML-styles&quot;&gt;mjx-math {
+  display: inline-block;
+  text-align: left;
+  line-height: 0;
+  text-indent: 0;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 100%;
+  font-size-adjust: none;
+  letter-spacing: normal;
+  border-collapse: collapse;
+  word-wrap: normal;
+  word-spacing: normal;
+  white-space: nowrap;
+  direction: ltr;
+  padding: 1px 0;
+}
+
+mjx-container[jax=&quot;CHTML&quot;][display=&quot;true&quot;] {
+  display: block;
+  text-align: center;
+  margin: 1em 0;
+}
+
+mjx-container[jax=&quot;CHTML&quot;][display=&quot;true&quot;][width=&quot;full&quot;] {
+  display: flex;
+}
+
+mjx-container[jax=&quot;CHTML&quot;][display=&quot;true&quot;] mjx-math {
+  padding: 0;
+}
+
+mjx-container[jax=&quot;CHTML&quot;][justify=&quot;left&quot;] {
+  text-align: left;
+}
+
+mjx-container[jax=&quot;CHTML&quot;][justify=&quot;right&quot;] {
+  text-align: right;
+}
+
+mjx-mfrac {
+  display: inline-block;
+  text-align: left;
+}
+
+mjx-frac {
+  display: inline-block;
+  vertical-align: 0.17em;
+  padding: 0 .22em;
+}
+
+mjx-frac[type=&quot;d&quot;] {
+  vertical-align: .04em;
+}
+
+mjx-frac[delims] {
+  padding: 0 .1em;
+}
+
+mjx-frac[atop] {
+  padding: 0 .12em;
+}
+
+mjx-frac[atop][delims] {
+  padding: 0;
+}
+
+mjx-dtable {
+  display: inline-table;
+  width: 100%;
+}
+
+mjx-dtable &gt; * {
+  font-size: 2000%;
+}
+
+mjx-dbox {
+  display: block;
+  font-size: 5%;
+}
+
+mjx-num {
+  display: block;
+  text-align: center;
+}
+
+mjx-den {
+  display: block;
+  text-align: center;
+}
+
+mjx-mfrac[bevelled] &gt; mjx-num {
+  display: inline-block;
+}
+
+mjx-mfrac[bevelled] &gt; mjx-den {
+  display: inline-block;
+}
+
+mjx-den[align=&quot;right&quot;], mjx-num[align=&quot;right&quot;] {
+  text-align: right;
+}
+
+mjx-den[align=&quot;left&quot;], mjx-num[align=&quot;left&quot;] {
+  text-align: left;
+}
+
+mjx-nstrut {
+  display: inline-block;
+  height: .054em;
+  width: 0;
+  vertical-align: -.054em;
+}
+
+mjx-nstrut[type=&quot;d&quot;] {
+  height: .217em;
+  vertical-align: -.217em;
+}
+
+mjx-dstrut {
+  display: inline-block;
+  height: .505em;
+  width: 0;
+}
+
+mjx-dstrut[type=&quot;d&quot;] {
+  height: .726em;
+}
+
+mjx-line {
+  display: block;
+  box-sizing: border-box;
+  min-height: 1px;
+  height: .06em;
+  border-top: .06em solid;
+  margin: .06em -.1em;
+  overflow: hidden;
+}
+
+mjx-line[type=&quot;d&quot;] {
+  margin: .18em -.1em;
+}
+
+mjx-mi {
+  display: inline-block;
+  text-align: left;
+}
+
+mjx-c {
+  display: inline-block;
+}
+
+mjx-utext {
+  display: inline-block;
+  padding: .75em 0 .2em 0;
+}
+
+mjx-mrow {
+  display: inline-block;
+  text-align: left;
+}
+
+mjx-munderover {
+  display: inline-block;
+  text-align: left;
+}
+
+mjx-munderover:not([limits=&quot;false&quot;]) {
+  padding-top: .1em;
+}
+
+mjx-munderover:not([limits=&quot;false&quot;]) &gt; * {
+  display: block;
+}
+
+mjx-msubsup {
+  display: inline-block;
+  text-align: left;
+}
+
+mjx-script {
+  display: inline-block;
+  padding-right: .05em;
+  padding-left: .033em;
+}
+
+mjx-script &gt; mjx-spacer {
+  display: block;
+}
+
+mjx-mo {
+  display: inline-block;
+  text-align: left;
+}
+
+mjx-stretchy-h {
+  display: inline-table;
+  width: 100%;
+}
+
+mjx-stretchy-h &gt; * {
+  display: table-cell;
+  width: 0;
+}
+
+mjx-stretchy-h &gt; * &gt; mjx-c {
+  display: inline-block;
+  transform: scalex(1.0000001);
+}
+
+mjx-stretchy-h &gt; * &gt; mjx-c::before {
+  display: inline-block;
+  width: initial;
+}
+
+mjx-stretchy-h &gt; mjx-ext {
+  /* IE */ overflow: hidden;
+  /* others */ overflow: clip visible;
+  width: 100%;
+}
+
+mjx-stretchy-h &gt; mjx-ext &gt; mjx-c::before {
+  transform: scalex(500);
+}
+
+mjx-stretchy-h &gt; mjx-ext &gt; mjx-c {
+  width: 0;
+}
+
+mjx-stretchy-h &gt; mjx-beg &gt; mjx-c {
+  margin-right: -.1em;
+}
+
+mjx-stretchy-h &gt; mjx-end &gt; mjx-c {
+  margin-left: -.1em;
+}
+
+mjx-stretchy-v {
+  display: inline-block;
+}
+
+mjx-stretchy-v &gt; * {
+  display: block;
+}
+
+mjx-stretchy-v &gt; mjx-beg {
+  height: 0;
+}
+
+mjx-stretchy-v &gt; mjx-end &gt; mjx-c {
+  display: block;
+}
+
+mjx-stretchy-v &gt; * &gt; mjx-c {
+  transform: scaley(1.0000001);
+  transform-origin: left center;
+  overflow: hidden;
+}
+
+mjx-stretchy-v &gt; mjx-ext {
+  display: block;
+  height: 100%;
+  box-sizing: border-box;
+  border: 0px solid transparent;
+  /* IE */ overflow: hidden;
+  /* others */ overflow: visible clip;
+}
+
+mjx-stretchy-v &gt; mjx-ext &gt; mjx-c::before {
+  width: initial;
+  box-sizing: border-box;
+}
+
+mjx-stretchy-v &gt; mjx-ext &gt; mjx-c {
+  transform: scaleY(500) translateY(.075em);
+  overflow: visible;
+}
+
+mjx-mark {
+  display: inline-block;
+  height: 0px;
+}
+
+mjx-TeXAtom {
+  display: inline-block;
+  text-align: left;
+}
+
+mjx-mn {
+  display: inline-block;
+  text-align: left;
+}
+
+mjx-c.mjx-c1D6FC.TEX-I::before {
+  padding: 0.442em 0.64em 0.011em 0;
+  content: &quot;&#92;3B1&quot;;
+}
+
+mjx-c.mjx-c2211.TEX-S1::before {
+  padding: 0.75em 1.056em 0.25em 0;
+  content: &quot;&#92;2211&quot;;
+}
+
+mjx-c.mjx-c1D45B.TEX-I::before {
+  padding: 0.442em 0.6em 0.011em 0;
+  content: &quot;n&quot;;
+}
+
+mjx-c.mjx-c1D456.TEX-I::before {
+  padding: 0.661em 0.345em 0.011em 0;
+  content: &quot;i&quot;;
+}
+
+mjx-c.mjx-c3D::before {
+  padding: 0.583em 0.778em 0.082em 0;
+  content: &quot;=&quot;;
+}
+
+mjx-c.mjx-c31::before {
+  padding: 0.666em 0.5em 0 0;
+  content: &quot;1&quot;;
+}
+
+
+
+
+
+
+
+
+mjx-container[jax=&quot;CHTML&quot;] {
+  line-height: 0;
+}
+
+mjx-container [space=&quot;1&quot;] {
+  margin-left: .111em;
+}
+
+mjx-container [space=&quot;2&quot;] {
+  margin-left: .167em;
+}
+
+mjx-container [space=&quot;3&quot;] {
+  margin-left: .222em;
+}
+
+mjx-container [space=&quot;4&quot;] {
+  margin-left: .278em;
+}
+
+mjx-container [space=&quot;5&quot;] {
+  margin-left: .333em;
+}
+
+mjx-container [rspace=&quot;1&quot;] {
+  margin-right: .111em;
+}
+
+mjx-container [rspace=&quot;2&quot;] {
+  margin-right: .167em;
+}
+
+mjx-container [rspace=&quot;3&quot;] {
+  margin-right: .222em;
+}
+
+mjx-container [rspace=&quot;4&quot;] {
+  margin-right: .278em;
+}
+
+mjx-container [rspace=&quot;5&quot;] {
+  margin-right: .333em;
+}
+
+mjx-container [size=&quot;s&quot;] {
+  font-size: 70.7%;
+}
+
+mjx-container [size=&quot;ss&quot;] {
+  font-size: 50%;
+}
+
+mjx-container [size=&quot;Tn&quot;] {
+  font-size: 60%;
+}
+
+mjx-container [size=&quot;sm&quot;] {
+  font-size: 85%;
+}
+
+mjx-container [size=&quot;lg&quot;] {
+  font-size: 120%;
+}
+
+mjx-container [size=&quot;Lg&quot;] {
+  font-size: 144%;
+}
+
+mjx-container [size=&quot;LG&quot;] {
+  font-size: 173%;
+}
+
+mjx-container [size=&quot;hg&quot;] {
+  font-size: 207%;
+}
+
+mjx-container [size=&quot;HG&quot;] {
+  font-size: 249%;
+}
+
+mjx-container [width=&quot;full&quot;] {
+  width: 100%;
+}
+
+mjx-box {
+  display: inline-block;
+}
+
+mjx-block {
+  display: block;
+}
+
+mjx-itable {
+  display: inline-table;
+}
+
+mjx-row {
+  display: table-row;
+}
+
+mjx-row &gt; * {
+  display: table-cell;
+}
+
+mjx-mtext {
+  display: inline-block;
+}
+
+mjx-mstyle {
+  display: inline-block;
+}
+
+mjx-merror {
+  display: inline-block;
+  color: red;
+  background-color: yellow;
+}
+
+mjx-mphantom {
+  visibility: hidden;
+}
+
+_::-webkit-full-page-media, _:future, :root mjx-container {
+  will-change: opacity;
+}
+
+mjx-assistive-mml {
+  position: absolute !important;
+  top: 0px;
+  left: 0px;
+  clip: rect(1px, 1px, 1px, 1px);
+  padding: 1px 0px 0px 0px !important;
+  border: 0px !important;
+  display: block !important;
+  width: auto !important;
+  overflow: hidden !important;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+mjx-assistive-mml[display=&quot;block&quot;] {
+  width: 100% !important;
+}
+
+mjx-c::before {
+  display: block;
+  width: 0;
+}
+
+.MJX-TEX {
+  font-family: MJXZERO, MJXTEX;
+}
+
+.TEX-B {
+  font-family: MJXZERO, MJXTEX-B;
+}
+
+.TEX-I {
+  font-family: MJXZERO, MJXTEX-I;
+}
+
+.TEX-MI {
+  font-family: MJXZERO, MJXTEX-MI;
+}
+
+.TEX-BI {
+  font-family: MJXZERO, MJXTEX-BI;
+}
+
+.TEX-S1 {
+  font-family: MJXZERO, MJXTEX-S1;
+}
+
+.TEX-S2 {
+  font-family: MJXZERO, MJXTEX-S2;
+}
+
+.TEX-S3 {
+  font-family: MJXZERO, MJXTEX-S3;
+}
+
+.TEX-S4 {
+  font-family: MJXZERO, MJXTEX-S4;
+}
+
+.TEX-A {
+  font-family: MJXZERO, MJXTEX-A;
+}
+
+.TEX-C {
+  font-family: MJXZERO, MJXTEX-C;
+}
+
+.TEX-CB {
+  font-family: MJXZERO, MJXTEX-CB;
+}
+
+.TEX-FR {
+  font-family: MJXZERO, MJXTEX-FR;
+}
+
+.TEX-FRB {
+  font-family: MJXZERO, MJXTEX-FRB;
+}
+
+.TEX-SS {
+  font-family: MJXZERO, MJXTEX-SS;
+}
+
+.TEX-SSB {
+  font-family: MJXZERO, MJXTEX-SSB;
+}
+
+.TEX-SSI {
+  font-family: MJXZERO, MJXTEX-SSI;
+}
+
+.TEX-SC {
+  font-family: MJXZERO, MJXTEX-SC;
+}
+
+.TEX-T {
+  font-family: MJXZERO, MJXTEX-T;
+}
+
+.TEX-V {
+  font-family: MJXZERO, MJXTEX-V;
+}
+
+.TEX-VB {
+  font-family: MJXZERO, MJXTEX-VB;
+}
+
+mjx-stretchy-v mjx-c, mjx-stretchy-h mjx-c {
+  font-family: MJXZERO, MJXTEX-S1, MJXTEX-S4, MJXTEX, MJXTEX-A ! important;
+}
+
+@font-face /* 0 */ {
+  font-family: MJXZERO;
+  src: url(&quot;https://cdn.jsdelivr.net/npm/mathjax@3/es5/output/chtml/fonts/woff-v2/MathJax_Zero.woff&quot;) format(&quot;woff&quot;);
+}
+
+@font-face /* 1 */ {
+  font-family: MJXTEX;
+  src: url(&quot;https://cdn.jsdelivr.net/npm/mathjax@3/es5/output/chtml/fonts/woff-v2/MathJax_Main-Regular.woff&quot;) format(&quot;woff&quot;);
+}
+
+@font-face /* 2 */ {
+  font-family: MJXTEX-B;
+  src: url(&quot;https://cdn.jsdelivr.net/npm/mathjax@3/es5/output/chtml/fonts/woff-v2/MathJax_Main-Bold.woff&quot;) format(&quot;woff&quot;);
+}
+
+@font-face /* 3 */ {
+  font-family: MJXTEX-I;
+  src: url(&quot;https://cdn.jsdelivr.net/npm/mathjax@3/es5/output/chtml/fonts/woff-v2/MathJax_Math-Italic.woff&quot;) format(&quot;woff&quot;);
+}
+
+@font-face /* 4 */ {
+  font-family: MJXTEX-MI;
+  src: url(&quot;https://cdn.jsdelivr.net/npm/mathjax@3/es5/output/chtml/fonts/woff-v2/MathJax_Main-Italic.woff&quot;) format(&quot;woff&quot;);
+}
+
+@font-face /* 5 */ {
+  font-family: MJXTEX-BI;
+  src: url(&quot;https://cdn.jsdelivr.net/npm/mathjax@3/es5/output/chtml/fonts/woff-v2/MathJax_Math-BoldItalic.woff&quot;) format(&quot;woff&quot;);
+}
+
+@font-face /* 6 */ {
+  font-family: MJXTEX-S1;
+  src: url(&quot;https://cdn.jsdelivr.net/npm/mathjax@3/es5/output/chtml/fonts/woff-v2/MathJax_Size1-Regular.woff&quot;) format(&quot;woff&quot;);
+}
+
+@font-face /* 7 */ {
+  font-family: MJXTEX-S2;
+  src: url(&quot;https://cdn.jsdelivr.net/npm/mathjax@3/es5/output/chtml/fonts/woff-v2/MathJax_Size2-Regular.woff&quot;) format(&quot;woff&quot;);
+}
+
+@font-face /* 8 */ {
+  font-family: MJXTEX-S3;
+  src: url(&quot;https://cdn.jsdelivr.net/npm/mathjax@3/es5/output/chtml/fonts/woff-v2/MathJax_Size3-Regular.woff&quot;) format(&quot;woff&quot;);
+}
+
+@font-face /* 9 */ {
+  font-family: MJXTEX-S4;
+  src: url(&quot;https://cdn.jsdelivr.net/npm/mathjax@3/es5/output/chtml/fonts/woff-v2/MathJax_Size4-Regular.woff&quot;) format(&quot;woff&quot;);
+}
+
+@font-face /* 10 */ {
+  font-family: MJXTEX-A;
+  src: url(&quot;https://cdn.jsdelivr.net/npm/mathjax@3/es5/output/chtml/fonts/woff-v2/MathJax_AMS-Regular.woff&quot;) format(&quot;woff&quot;);
+}
+
+@font-face /* 11 */ {
+  font-family: MJXTEX-C;
+  src: url(&quot;https://cdn.jsdelivr.net/npm/mathjax@3/es5/output/chtml/fonts/woff-v2/MathJax_Calligraphic-Regular.woff&quot;) format(&quot;woff&quot;);
+}
+
+@font-face /* 12 */ {
+  font-family: MJXTEX-CB;
+  src: url(&quot;https://cdn.jsdelivr.net/npm/mathjax@3/es5/output/chtml/fonts/woff-v2/MathJax_Calligraphic-Bold.woff&quot;) format(&quot;woff&quot;);
+}
+
+@font-face /* 13 */ {
+  font-family: MJXTEX-FR;
+  src: url(&quot;https://cdn.jsdelivr.net/npm/mathjax@3/es5/output/chtml/fonts/woff-v2/MathJax_Fraktur-Regular.woff&quot;) format(&quot;woff&quot;);
+}
+
+@font-face /* 14 */ {
+  font-family: MJXTEX-FRB;
+  src: url(&quot;https://cdn.jsdelivr.net/npm/mathjax@3/es5/output/chtml/fonts/woff-v2/MathJax_Fraktur-Bold.woff&quot;) format(&quot;woff&quot;);
+}
+
+@font-face /* 15 */ {
+  font-family: MJXTEX-SS;
+  src: url(&quot;https://cdn.jsdelivr.net/npm/mathjax@3/es5/output/chtml/fonts/woff-v2/MathJax_SansSerif-Regular.woff&quot;) format(&quot;woff&quot;);
+}
+
+@font-face /* 16 */ {
+  font-family: MJXTEX-SSB;
+  src: url(&quot;https://cdn.jsdelivr.net/npm/mathjax@3/es5/output/chtml/fonts/woff-v2/MathJax_SansSerif-Bold.woff&quot;) format(&quot;woff&quot;);
+}
+
+@font-face /* 17 */ {
+  font-family: MJXTEX-SSI;
+  src: url(&quot;https://cdn.jsdelivr.net/npm/mathjax@3/es5/output/chtml/fonts/woff-v2/MathJax_SansSerif-Italic.woff&quot;) format(&quot;woff&quot;);
+}
+
+@font-face /* 18 */ {
+  font-family: MJXTEX-SC;
+  src: url(&quot;https://cdn.jsdelivr.net/npm/mathjax@3/es5/output/chtml/fonts/woff-v2/MathJax_Script-Regular.woff&quot;) format(&quot;woff&quot;);
+}
+
+@font-face /* 19 */ {
+  font-family: MJXTEX-T;
+  src: url(&quot;https://cdn.jsdelivr.net/npm/mathjax@3/es5/output/chtml/fonts/woff-v2/MathJax_Typewriter-Regular.woff&quot;) format(&quot;woff&quot;);
+}
+
+@font-face /* 20 */ {
+  font-family: MJXTEX-V;
+  src: url(&quot;https://cdn.jsdelivr.net/npm/mathjax@3/es5/output/chtml/fonts/woff-v2/MathJax_Vector-Regular.woff&quot;) format(&quot;woff&quot;);
+}
+
+@font-face /* 21 */ {
+  font-family: MJXTEX-VB;
+  src: url(&quot;https://cdn.jsdelivr.net/npm/mathjax@3/es5/output/chtml/fonts/woff-v2/MathJax_Vector-Bold.woff&quot;) format(&quot;woff&quot;);
+}
+&lt;/style&gt;&lt;/head&gt;&lt;body&gt;&lt;p&gt;Leverage agile frameworks to provide a robust synopsis for high level overviews. Iterative approaches to corporate strategy foster collaborative thinking to further the overall value proposition. Organically grow the holistic world view of disruptive innovation via workplace diversity and empowerment.&lt;/p&gt;
+&lt;p&gt;&lt;mjx-container class=&quot;MathJax&quot; jax=&quot;CHTML&quot; style=&quot;font-size: 113.1%; position: relative;&quot; display=&quot;true&quot;&gt;&lt;mjx-math display=&quot;true&quot; style=&quot;margin-left: 0; margin-right: 0;&quot; class=&quot; MJX-TEX&quot; aria-hidden=&quot;true&quot;&gt;&lt;mjx-mfrac&gt;&lt;mjx-frac type=&quot;d&quot;&gt;&lt;mjx-num&gt;&lt;mjx-nstrut type=&quot;d&quot;&gt;&lt;/mjx-nstrut&gt;&lt;mjx-mi class=&quot;mjx-i&quot;&gt;&lt;mjx-c class=&quot;mjx-c1D6FC TEX-I&quot;&gt;&lt;/mjx-c&gt;&lt;/mjx-mi&gt;&lt;/mjx-num&gt;&lt;mjx-dbox&gt;&lt;mjx-dtable&gt;&lt;mjx-line type=&quot;d&quot;&gt;&lt;/mjx-line&gt;&lt;mjx-row&gt;&lt;mjx-den&gt;&lt;mjx-dstrut type=&quot;d&quot;&gt;&lt;/mjx-dstrut&gt;&lt;mjx-mrow&gt;&lt;mjx-munderover limits=&quot;false&quot;&gt;&lt;mjx-mo class=&quot;mjx-sop&quot;&gt;&lt;mjx-c class=&quot;mjx-c2211 TEX-S1&quot;&gt;&lt;/mjx-c&gt;&lt;/mjx-mo&gt;&lt;mjx-script style=&quot;vertical-align: -0.285em; margin-left: 0;&quot;&gt;&lt;mjx-TeXAtom size=&quot;s&quot; texclass=&quot;ORD&quot;&gt;&lt;mjx-mi class=&quot;mjx-i&quot;&gt;&lt;mjx-c class=&quot;mjx-c1D45B TEX-I&quot;&gt;&lt;/mjx-c&gt;&lt;/mjx-mi&gt;&lt;/mjx-TeXAtom&gt;&lt;mjx-spacer style=&quot;margin-top: 0.284em;&quot;&gt;&lt;/mjx-spacer&gt;&lt;mjx-TeXAtom size=&quot;s&quot; texclass=&quot;ORD&quot;&gt;&lt;mjx-mi class=&quot;mjx-i&quot;&gt;&lt;mjx-c class=&quot;mjx-c1D456 TEX-I&quot;&gt;&lt;/mjx-c&gt;&lt;/mjx-mi&gt;&lt;mjx-mo class=&quot;mjx-n&quot;&gt;&lt;mjx-c class=&quot;mjx-c3D&quot;&gt;&lt;/mjx-c&gt;&lt;/mjx-mo&gt;&lt;mjx-mn class=&quot;mjx-n&quot;&gt;&lt;mjx-c class=&quot;mjx-c31&quot;&gt;&lt;/mjx-c&gt;&lt;/mjx-mn&gt;&lt;/mjx-TeXAtom&gt;&lt;/mjx-script&gt;&lt;/mjx-munderover&gt;&lt;mjx-mi class=&quot;mjx-i&quot; space=&quot;2&quot;&gt;&lt;mjx-c class=&quot;mjx-c1D456 TEX-I&quot;&gt;&lt;/mjx-c&gt;&lt;/mjx-mi&gt;&lt;/mjx-mrow&gt;&lt;/mjx-den&gt;&lt;/mjx-row&gt;&lt;/mjx-dtable&gt;&lt;/mjx-dbox&gt;&lt;/mjx-frac&gt;&lt;/mjx-mfrac&gt;&lt;/mjx-math&gt;&lt;mjx-assistive-mml unselectable=&quot;on&quot; display=&quot;block&quot;&gt;&lt;math xmlns=&quot;http://www.w3.org/1998/Math/MathML&quot; display=&quot;block&quot;&gt;&lt;mfrac&gt;&lt;mi&gt;α&lt;/mi&gt;&lt;mrow&gt;&lt;munderover&gt;&lt;mo data-mjx-texclass=&quot;OP&quot;&gt;∑&lt;/mo&gt;&lt;mrow data-mjx-texclass=&quot;ORD&quot;&gt;&lt;mi&gt;i&lt;/mi&gt;&lt;mo&gt;=&lt;/mo&gt;&lt;mn&gt;1&lt;/mn&gt;&lt;/mrow&gt;&lt;mrow data-mjx-texclass=&quot;ORD&quot;&gt;&lt;mi&gt;n&lt;/mi&gt;&lt;/mrow&gt;&lt;/munderover&gt;&lt;mi&gt;i&lt;/mi&gt;&lt;/mrow&gt;&lt;/mfrac&gt;&lt;/math&gt;&lt;/mjx-assistive-mml&gt;&lt;/mjx-container&gt;&lt;/p&gt;
 &lt;h2 id=&quot;section-header&quot;&gt;Section Header&lt;/h2&gt;
 &lt;p&gt;&lt;a href=&quot;https://example.com/blog/firstpost.md&quot;&gt;First post&lt;/a&gt;
 &lt;a href=&quot;https://example.com/blog/thirdpost/&quot;&gt;Third post&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;Bring to the table win-win survival strategies to ensure proactive domination. At the end of the day, going forward, a new normal that has evolved from generation X is on the runway heading towards a streamlined cloud solution. User generated content in real-time will have multiple touchpoints for offshoring.&lt;/p&gt;
 &lt;p&gt;Capitalize on low hanging fruit to identify a ballpark value added activity to beta test. Override the digital divide with additional clickthroughs from DevOps. Nanotechnology immersion along the information highway will close the loop on focusing solely on the bottom line.&lt;/p&gt;
+&lt;/body&gt;&lt;/html&gt;
 </content>
   </entry>
 </feed>
