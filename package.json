@@ -52,6 +52,7 @@
 	},
 	"dependencies": {
 		"@myriaddreamin/typst.ts": "^0.5.0-rc8",
+		"@picocss/pico": "^2.0.6",
 		"@zachleat/heading-anchors": "^1.0.1"
 	}
 }
