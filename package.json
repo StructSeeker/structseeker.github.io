@@ -13,7 +13,7 @@
 		"debugstart": "cross-env DEBUG=Eleventy* npx @11ty/eleventy --serve --quiet",
 		"benchmark": "cross-env DEBUG=Eleventy:Benchmark* npx @11ty/eleventy",
 		"encrypt": "npx pagecrypt ./content/resume/raw_resume.html  ./content/resume/index.html password",
-		"pagefind": "npx pagefind --site _site --output-subdir ../public/pagefind --glob \"**/*.html\""
+		"pagefind": "npx pagefind --site _site --output-subdir ../content/public/pagefind --glob \"**/*.html\""
 	},
 	"repository": {
 		"type": "git",
@@ -51,6 +51,8 @@
 		"zod-validation-error": "^3.3.1"
 	},
 	"dependencies": {
+		"@myriaddreamin/typst-ts-renderer": "^0.5.0-rc8",
+		"@myriaddreamin/typst-ts-web-compiler": "^0.5.0-rc8",
 		"@myriaddreamin/typst.ts": "^0.5.0-rc8",
 		"@picocss/pico": "^2.0.6",
 		"@zachleat/heading-anchors": "^1.0.1"

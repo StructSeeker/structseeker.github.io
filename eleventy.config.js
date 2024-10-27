@@ -27,7 +27,8 @@ export default async function(eleventyConfig) {
 	// For example, `./public/css/` ends up in `_site/css/`
 	eleventyConfig
 		.addPassthroughCopy({
-			"./public/": "/"
+		"./content/public": "/public",
+		"./node_modules/@myriaddreamin": "/node_modules/@myriaddreamin"
 		})
 		.addPassthroughCopy("./content/feed/pretty-atom-feed.xsl");
 
@@ -46,6 +47,10 @@ export default async function(eleventyConfig) {
 	eleventyConfig.addBundle("js", {
 		toFileDirectory: "dist",
 	});
+	eleventyConfig.addBundle("headext", {
+		toFileDirectory: "dist",
+	});
+
 
 	// Official plugins
 	eleventyConfig.addPlugin(pluginSyntaxHighlight, {
@@ -140,6 +145,7 @@ export const config = {
 		"md",
 		"njk",
 		"html",
+		"css",
 		"liquid",
 
 		"11ty.js",

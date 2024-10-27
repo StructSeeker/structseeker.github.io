@@ -2,13 +2,13 @@
 layout: layouts/base.njk
 ---
 
-{% block head_extensions %}
+{% headext %}
 {% include "partials/hypothesis.njk" %}
-{% endblock %}
+{% endheadext %}
 
 {# Only include the syntax highlighter CSS on blog posts, included with the CSS per-page bundle #}
 {%- css %}{% include "node_modules/prismjs/themes/prism-okaidia.css" %}{% endcss %}
-{%- css %}{% include "public/css/prism-diff.css" %}{%- endcss %}
+{%- css %}{% include "content/public/css/prism-diff.css" %}{%- endcss %}
 
 
 
