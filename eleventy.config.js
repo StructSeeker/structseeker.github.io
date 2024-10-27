@@ -28,7 +28,7 @@ export default async function(eleventyConfig) {
 	eleventyConfig
 		.addPassthroughCopy({
 		"./content/public": "/public",
-		"./node_modules/@myriaddreamin": "/node_modules/@myriaddreamin"
+		// "./node_modules/@myriaddreamin": "/node_modules/@myriaddreamin"
 		})
 		.addPassthroughCopy("./content/feed/pretty-atom-feed.xsl");
 
