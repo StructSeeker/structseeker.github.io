@@ -5,46 +5,11 @@
   <subtitle>Blog Description Placeholder</subtitle>
   <link href="https://structseeker.github.io/feed/feed.xml" rel="self" />
   <link href="https://structseeker.github.io/" />
-  <updated>2024-10-26T19:58:24Z</updated>
+  <updated>2018-09-30T00:00:00Z</updated>
   <id>https://structseeker.github.io/</id>
   <author>
     <name>StructSeeker</name>
   </author>
-  <entry>
-    <title>use typst</title>
-    <link href="https://structseeker.github.io/blog/fifthpost/" />
-    <updated>2024-10-26T19:58:24Z</updated>
-    <id>https://structseeker.github.io/blog/fifthpost/</id>
-    <content type="html">
-&lt;html&gt;&lt;head&gt;&lt;/head&gt;&lt;body&gt;&lt;h1 id=&quot;hello&quot;&gt;Hello&lt;/h1&gt;
-&lt;/body&gt;&lt;/html&gt;
-</content>
-  </entry>
-  <entry>
-    <title>Test Post</title>
-    <link href="https://structseeker.github.io/blog/testpost/" />
-    <updated>2024-10-19T14:28:13Z</updated>
-    <id>https://structseeker.github.io/blog/testpost/</id>
-    <content type="html">
-&lt;html&gt;&lt;head&gt;&lt;/head&gt;&lt;body&gt;&lt;h1 id=&quot;test&quot;&gt;Test&lt;/h1&gt;
-&lt;p&gt;&lt;canvas&gt; &lt;/canvas&gt;&lt;/p&gt;
-&lt;script type=&quot;module&quot;&gt;
-
-fetch(&quot;./resume.svg&quot;)
-    .then(x =&gt; x.text())
-    .then(text =&gt; {
-        const canvas = document.getElementsByTagName(&quot;canvas&quot;)[0];
-        const ctx = canvas.getContext(&quot;2d&quot;);
-
-        let p = new Path2D(text);
-        ctx.fill(p);
-        }
-    )
-
-&lt;/script&gt;
-&lt;/body&gt;&lt;/html&gt;
-</content>
-  </entry>
   <entry>
     <title>This is my fourth post</title>
     <link href="https://structseeker.github.io/blog/fourthpost/" />
@@ -421,10 +386,6 @@ mjx-c.mjx-c31::before {
   padding: 0.666em 0.5em 0 0;
   content: &quot;1&quot;;
 }
-
-
-
-
 
 
 
