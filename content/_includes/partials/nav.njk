@@ -1,0 +1,45 @@
+{% set icons = {
+		"Home" : 'fa-solid fa-house',
+		"Archive" : 'fa-solid fa-folder',
+		"Tags" : 'fa-solid fa-tag',
+		"About" : 'fa-solid fa-address-card',
+		"RSS" : 'fa-solid fa-rss'
+}	
+%}
+<i class=""></i>
+		
+		{#- Read more about `eleventy-navigation` at https://www.11ty.dev/docs/plugins/navigation/ #}
+		<nav>
+			<h2 class="visually-hidden">Top level navigation menu</h2>
+			<ul class="navpages">
+				{%- for entry in collections.all | eleventyNavigation %}
+				<li class="nav-item" title="{{entry.title}}">
+					<a href="{{ entry.url }}" 
+					{% if entry.url==page.url %} aria-current="page" class="active" {% endif%}>
+						<i class="{{icons[entry.title]}}">
+						</i>
+					</a>
+				</li>
+				{%- endfor %}
+
+				<li class="nav-item visually-hidden" title="Linkedin" >
+					<a href="https://www.linkedin.com/in/"><i class="fa-brands fa-linkedin"></i></a>
+				</li>
+
+				<li class="nav-item" title="Share to Social Media">
+					<a href="#"><i class="fa-solid fa-share"></i></a>
+					
+				</li>
+
+				<li class="nav-item" title="Github">
+					<a href="https://github.com/StructSeeker"><i class="fa-brands fa-github"></i></a>
+				</li>
+
+				<li class="nav-item" title="Email">
+					<a href="mailto:servicesseeker@outlook.com"><i class="fa-solid fa-envelope"></i></a>
+				</li>
+
+
+
+			</ul>
+		</nav>

@@ -56,9 +56,6 @@ body {
 html {
 	overflow-y: scroll;
 }
-body {
-	max-width: 40em;
-}
 
 /* https://www.a11yproject.com/posts/how-to-hide-content/ */
 .visually-hidden {
@@ -96,9 +93,6 @@ a[href]:active {
 main,
 footer {
 	padding: 1rem;
-}
-main :first-child {
-	margin-top: 0;
 }
 
 header {
@@ -168,29 +162,13 @@ header {
 .home-link {
 	font-size: 1em; /* 16px /16 */
 	font-weight: 700;
-	margin-right: 2em;
 }
+
 .home-link:link:not(:hover) {
 	text-decoration: none;
 }
 
-/* Nav */
-.nav {
-	display: flex;
-	padding: 0;
-	margin: 0;
-	list-style: none;
-}
-.nav-item {
-	display: inline-block;
-	margin-right: 1em;
-}
-.nav-item a[href]:not(:hover) {
-	text-decoration: none;
-}
-.nav a[href][aria-current="page"] {
-	text-decoration: underline;
-}
+
 
 /* Posts list */
 .postlist {

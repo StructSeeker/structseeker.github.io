@@ -4,3 +4,7 @@ package-lock.json
 .cache
 structseeker.github.io.code-workspace
 content/resume/raw_resume.html
+ignore
+content/resume/data/profile.js
+content/resume/index.template.html
+content/resume/assets/images/pic.jpg

@@ -1,92 +1,102 @@
 <!doctype html>
 <html lang="{{ metadata.language }}">
-	<head>
-		<meta charset="utf-8">
-		<meta name="viewport" content="width=device-width, initial-scale=1.0">
-		<title>{{ title or metadata.title }}</title>
-		<meta name="description" content="{{ description or metadata.description }}">
-		<link rel="alternate" href="feed/feed.xml" type="application/atom+xml" title="{{ metadata.title }}">
 
-		{#- Uncomment this if you’d like folks to know that you used Eleventy to build your site!  #}
-		{#- <meta name="generator" content="{{ eleventy.generator }}"> #}
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>{{ title or metadata.title }}</title>
+	<meta name="description" content="{{ description or metadata.description }}">
+	<link rel="alternate" href="feed/feed.xml" type="application/atom+xml" title="{{ metadata.title }}">
 
-		{#-
-		Plain-text bundles are provided via the `eleventy-plugin-bundle` plugin:
-		1. CSS:
-			* Add to a per-page bundle using `{% css %}{% endcss %}`
-			* Retrieve bundle content using `{% getBundle "css" %}` or `{% getBundleFileUrl "css" %}`
-		2. Or for JavaScript:
-			* Add to a per-page bundle using `{% js %}{% endjs %}`
-			* Retrieve via `{% getBundle "js" %}` or `{% getBundleFileUrl "js" %}`
-		3. Learn more: https://github.com/11ty/eleventy-plugin-bundle
-		#}
+	{#- Uncomment this if you’d like folks to know that you used Eleventy to build your site! #}
+	{#-
+	<meta name="generator" content="{{ eleventy.generator }}"> #}
 
-		{# Use Pico CSS 
-		<link rel="stylesheet" 
-		href="https://cdn.jsdelivr.net/npm/@picocss/pico@2/css/pico.min.css"
-		>
-		#}
+	{#-
+	Plain-text bundles are provided via the `eleventy-plugin-bundle` plugin:
+	1. CSS:
+	* Add to a per-page bundle using `{% css %}{% endcss %}`
+	* Retrieve bundle content using `{% getBundle "css" %}` or `{% getBundleFileUrl "css" %}`
+	2. Or for JavaScript:
+	* Add to a per-page bundle using `{% js %}{% endjs %}`
+	* Retrieve via `{% getBundle "js" %}` or `{% getBundleFileUrl "js" %}`
+	3. Learn more: https://github.com/11ty/eleventy-plugin-bundle
+	#}
 
-
-		{#- Add an arbitrary string to the bundle #}
-		{%- css %}/* This is an arbitrary CSS string added to the bundle */{% endcss %}
-
-		{#- Add the contents of a file to the bundle 
-		#}
-		{%- css %} {% include "content/public/css/index.css" %} {% endcss %} 
-		
-		{#- Or you can add from node_modules #}
-		{%- css %}{% include "node_modules/prismjs/themes/prism-okaidia.css" %}{% endcss %} 
-
-		{#- Render the CSS bundle using inlined CSS (for the fastest site performance in production) 
-			<style>{% getBundle "css" %}</style>
-		#}
-
-		{#- Renders the CSS bundle using a separate file, if you can't set CSP directive style-src: 'unsafe-inline' #}
-		<link rel="stylesheet" href="{% getBundleFileUrl "css" %}"> 
-
-		{#- Add the heading-anchors web component to the JavaScript bundle #}
-		{%- js %}{% include "node_modules/@zachleat/heading-anchors/heading-anchors.js" %}{% endjs %}
-		
-		<script type="module" src="{% getBundleFileUrl "js" %}"></script>
-
-		{% getBundle "headext" %}
+	{# Use Pico CSS
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@2/css/pico.min.css">
+	#}
 
 
-	</head>
-	<body>
-		<a href="#skip" class="visually-hidden">Skip to main content</a>
+	{#- Add an arbitrary string to the bundle #}
+	{%- css %}/* This is an arbitrary CSS string added to the bundle */{% endcss %}
 
-		<header>
-			<a href="/" class="home-link">{{ metadata.title }}</a>
+	{#- Add the contents of a file to the bundle#}
+	{%- css %} {% include "content/public/css/index.css" %} {% endcss %}
+	{%- css %} {% include "content/public/css/sidebar.css" %} {% endcss %}
 
-			{#- Read more about `eleventy-navigation` at https://www.11ty.dev/docs/plugins/navigation/ #}
-			<nav>
-				<h2 class="visually-hidden">Top level navigation menu</h2>
-				<ul class="nav">
-				{%- for entry in collections.all | eleventyNavigation %}
-					<li class="nav-item"><a href="{{ entry.url }}"{% if entry.url == page.url %} aria-current="page"{% endif %}>{{ entry.title }}</a></li>
-				{%- endfor %}
-				</ul>
-			</nav>
-		</header>
+	{#- Or you can add from node_modules #}
+	{%- css %}{% include "node_modules/prismjs/themes/prism-okaidia.css" %}{% endcss %}
 
-		{% include "partials/pagefind.njk" %}
+	{#- Render the CSS bundle using inlined CSS (for the fastest site performance in production)
+	<style>
+		{
+			% getBundle "css" %
+		}
+	</style>
+	#}
+
+	{#- Renders the CSS bundle using a separate file, if you can't set CSP directive style-src: 'unsafe-inline' #}
+	<link rel="stylesheet" href='{% getBundleFileUrl "css" %}'>
+
+	{#- Add the heading-anchors web component to the JavaScript bundle #}
+	{%- js %}{% include "node_modules/@zachleat/heading-anchors/heading-anchors.js" %}{% endjs %}
+	<script type="module" src='{% getBundleFileUrl "js" %}'></script>
+
+	<script defer src="https://kit.fontawesome.com/2cbd5fa9e2.js" crossorigin="anonymous"></script>
+	
+	{% getBundle "headext" %}
 
 
-		<main id="skip">
-			<heading-anchors>
-				{{ content | safe }}
-			</heading-anchors>
-		</main>
+</head>
 
-		<!---
+<body>
+	<a href="#skip" class="visually-hidden">Skip to main content</a>
+
+	<aside class="sidebar">
+		<figure id="figcap">
+			<img src="/public/img/ultraproduct.svg" alt="headpic">
+			<figcaption><a href="/" class="home-link">{{ metadata.title }}</a></figcaption>
+		</figure>
+
+		{% include "partials/nav.njk" %}
+
+		{% include "partials/pagefind.njk" %}	
+
+	</aside>
+	
+{# 	
+	<header>
+	</header>  #}
+
+	
+	
+
+
+	<main id="skip">
+		<heading-anchors>
+			{{ content | safe }}
+		</heading-anchors>
+	</main>
+
+	<!---
 		<footer>
 			<p><em>Built with <a href="https://www.11ty.dev/">{{ eleventy.generator }}</a></em></p>
 		</footer>
 		-->
 
-		<!-- This page `{{ page.url | htmlBaseUrl }}` was built on {% currentBuildDate %} -->
-		
-	</body>
+	<!-- This page `{{ page.url | htmlBaseUrl }}` was built on {% currentBuildDate %} -->
+
+</body>
+
 </html>

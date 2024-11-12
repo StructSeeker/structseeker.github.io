@@ -27,7 +27,7 @@ export default async function(eleventyConfig) {
 	// For example, `./public/css/` ends up in `_site/css/`
 	eleventyConfig
 		.addPassthroughCopy({
-		"./content/public": "/public",
+		"public": "public",
 		// "./node_modules/@myriaddreamin": "/node_modules/@myriaddreamin"
 		})
 		.addPassthroughCopy("./content/feed/pretty-atom-feed.xsl");
@@ -66,8 +66,8 @@ export default async function(eleventyConfig) {
 		stylesheet: "pretty-atom-feed.xsl",
 		templateData: {
 			eleventyNavigation: {
-				key: "Feed",
-				order: 4
+				key: "RSS",
+				order: 5
 			}
 		},
 		collection: {
