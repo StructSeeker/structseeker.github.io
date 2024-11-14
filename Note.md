@@ -1,5 +1,10 @@
 # Notes
 
+## Todo
+Perhaps Change Template Engine to ejs.
+
+
+
 ## Use Pagefind
 
 [https://rknight.me/blog/using-pagefind-with-eleventy-for-search/]
@@ -39,6 +44,6 @@
 ```
 
 
-## Share Link
+## Share Link ToDo
 
 [link](https://www.raymondcamden.com/2022/08/22/adding-social-share-links-in-eleventy)
