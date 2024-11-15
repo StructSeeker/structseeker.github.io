@@ -12,17 +12,24 @@ layout: layouts/base.njk
 
 
 
-<article data-pagefind-body>
+<article data-pagefind-body class="js-toc-content">
 
 <h1>{{ title }}</h1>
 
-<ul class="post-metadata">
-	<li><time datetime="{{ page.date | htmlDateString }}">{{ page.date | readableDate }}</time></li>
-	{%- for tag in tags | filterTagList %}
-	{%- set tagUrl %}/tags/{{ tag | slugify }}/{% endset %}
-	<li><a href="{{ tagUrl }}" class="post-tag">{{ tag }}</a>{%- if not loop.last %}, {% endif %}</li>
-	{%- endfor %}
-</ul>
+<div data-pagefind-ignore="index" class="post-metadata">
+
+        <time datetime="{{ page.date | htmlDateString }}">{{ page.date | readableDate }}</time>
+        
+        <ul id="taglist" data-pagefind-meta="tags">
+                        {%- for tag in tags | filterTagList %}
+                        {%- set tagUrl %}/tags/{{ tag | slugify }}/{% endset %}
+                        <li>
+                                <a href="{{ tagUrl }}" class="post-tag" data-pagefind-filter="tag">{{ tag }}</a>
+                                {%- if not loop.last %}, {% endif %}
+                        </li>
+                        {%- endfor %}
+        </ul>
+</div>
 
 
 
@@ -59,3 +66,6 @@ layout: layouts/base.njk
         crossorigin="anonymous"
         async>
 </script>
+
+
+

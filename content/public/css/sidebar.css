@@ -12,12 +12,21 @@
 --pagefind-ui-font: sans-serif; */
 }
 
+
 main{
 	margin-top: 0;
   margin-left: 260px;
   margin-right: 30px;
   max-width: 685px;
 }
+
+header {
+  margin-left: 260px;
+  margin-right: 30px;
+  max-width: 685px;
+}
+
+
 
 .sidebar {
     margin: 0;
@@ -59,8 +68,18 @@ main{
     text-align: center;
   }
   
+
+
   @media screen and (max-width: 700px) {
+    #toc {
+      display: none;
+    }
+
     main {
+      margin-left: auto;
+    }
+
+    header {
       margin-left: auto;
     }
 
@@ -76,7 +95,15 @@ main{
   }
   
   @media screen and (max-width: 400px) {
+    #toc {
+      display: none;
+    }
+    
     main {
+      margin-left: auto;
+    }
+
+    header {
       margin-left: auto;
     }
 

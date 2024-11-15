@@ -27,8 +27,10 @@ export default async function(eleventyConfig) {
 	// For example, `./public/css/` ends up in `_site/css/`
 	eleventyConfig
 		.addPassthroughCopy({
-		"public": "public",
-		// "./node_modules/@myriaddreamin": "/node_modules/@myriaddreamin"
+		"content/public": "public",
+		'node_modules/tocbot': 'node_modules/tocbot',
+		// "./node_modules/@myriaddreamin": "/node_modules/@myriaddreamin",
+		//	""
 		})
 		.addPassthroughCopy("./content/feed/pretty-atom-feed.xsl");
 

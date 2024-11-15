@@ -1,7 +1,7 @@
 export default {
-	title: "StructSeeker",
+	title: "ЅtructЅeeker",
 	url: "https://structseeker.github.io/",
-	// language: "en",
+	language: "en",
 	description: "TBA",
 	author: {
 		name: "ЅtructЅeeker",

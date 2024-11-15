@@ -1,4 +1,12 @@
 
 <link href="/public/pagefind/pagefind-ui.css" rel="stylesheet">
 <div id="search" class="search"></div>
-<script src="/public/pagefind/pagefind-ui.js" onload="new PagefindUI({ element: '#search', showImages: false });"></script>
+<script src="/public/pagefind/pagefind-ui.js" 
+    onload="new PagefindUI({
+     element: '#search',
+    showImages: false,
+     bundlePath: '/public/pagefind/',
+     baseUrl: '/../',
+     showEmptyFilters: false
+    });">
+</script>
