@@ -70,10 +70,12 @@ const setEducation = (education) => {
     eduStd.innerHTML = edu.std;
     eduClassData.appendChild(eduStd);
 
-    const eduScore = document.createElement("span");
-    eduScore.className = "edu-score";
-    eduScore.innerHTML = edu.score;
-    eduClassData.appendChild(eduScore);
+    if(edu.score){
+      const eduScore = document.createElement("span");
+      eduScore.className = "edu-score";
+      eduScore.innerHTML = edu.score;
+      eduClassData.appendChild(eduScore);
+    }
 
     li.appendChild(eduClassData);
 

@@ -12,7 +12,7 @@
 		"debug": "cross-env DEBUG=Eleventy* npx @11ty/eleventy",
 		"debugstart": "cross-env DEBUG=Eleventy* npx @11ty/eleventy --serve --quiet",
 		"benchmark": "cross-env DEBUG=Eleventy:Benchmark* npx @11ty/eleventy",
-		"encrypt": "npx pagecrypt ./content/resume/index.template.html  ./content/resume/index.html jiachengma",
+		"encrypt": "npx pagecrypt ./content/resume/index.template.html  ./content/resume/index.html",
 		"pagefind": "npx pagefind --site _site --output-subdir ../content/public/pagefind --glob \"**/*.html\" --force-language en"
 	},
 	"repository": {
