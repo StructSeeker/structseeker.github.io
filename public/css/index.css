@@ -13,9 +13,9 @@
 	--background-color: #fff;
 
 	--text-color: var(--color-gray-90);
-	--text-color-link: #082840;
+	--text-color-link: #1e5c8c;
 	--text-color-link-active: #5f2b48;
-	--text-color-link-visited: #17050F;
+	--text-color-link-visited: #060505;
 
 	--syntax-tab-size: 2;
 }
@@ -56,9 +56,6 @@ body {
 html {
 	overflow-y: scroll;
 }
-body {
-	max-width: 40em;
-}
 
 /* https://www.a11yproject.com/posts/how-to-hide-content/ */
 .visually-hidden {
@@ -78,27 +75,23 @@ p {
 	line-height: 1.5;
 }
 
-li {
-	line-height: 1.5;
-}
 
-a[href] {
-	color: var(--text-color-link);
-}
-a[href]:visited {
-	color: var(--text-color-link-visited);
-}
-a[href]:hover,
-a[href]:active {
-	color: var(--text-color-link-active);
+main {
+	a[href] {
+		color: var(--text-color-link);
+	}
+	a[href]:visited {
+		color: var(--text-color-link-visited);
+	}
+	a[href]:hover,
+	a[href]:active {
+		color: var(--text-color-link-active);
+	}
 }
 
 main,
 footer {
 	padding: 1rem;
-}
-main :first-child {
-	margin-top: 0;
 }
 
 header {
@@ -168,29 +161,13 @@ header {
 .home-link {
 	font-size: 1em; /* 16px /16 */
 	font-weight: 700;
-	margin-right: 2em;
 }
+
 .home-link:link:not(:hover) {
 	text-decoration: none;
 }
 
-/* Nav */
-.nav {
-	display: flex;
-	padding: 0;
-	margin: 0;
-	list-style: none;
-}
-.nav-item {
-	display: inline-block;
-	margin-right: 1em;
-}
-.nav-item a[href]:not(:hover) {
-	text-decoration: none;
-}
-.nav a[href][aria-current="page"] {
-	text-decoration: underline;
-}
+
 
 /* Posts list */
 .postlist {
@@ -251,8 +228,6 @@ header {
 .post-metadata {
 	display: inline-flex;
 	flex-wrap: wrap;
-	gap: .5em;
-	list-style: none;
 	padding: 0;
 	margin: 0;
 }
@@ -260,3 +235,10 @@ header {
 	margin-right: 1em;
 }
 
+.post-metadata #taglist {
+	display: inherit;
+	list-style: none;
+	gap: .5em;
+	padding-left: 0;
+	margin: 0
+}

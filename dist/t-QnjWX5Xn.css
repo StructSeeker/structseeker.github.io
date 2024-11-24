@@ -1,0 +1,531 @@
+.postlist { counter-reset: start-from 2 }
+/* Message Box */
+.message-box {
+	--color-message-box: #ffc;
+
+	display: block;
+	background-color: var(--color-message-box);
+	color: var(--color-gray-90);
+	padding: 1em 0.625em; /* 16px 10px /16 */
+}
+.message-box ol {
+	margin-top: 0;
+}
+
+@media (prefers-color-scheme: dark) {
+	.message-box {
+		--color-message-box: #082840;
+	}
+}
+/* This is an arbitrary CSS string added to the bundle */
+/* Defaults */
+:root {
+	--font-family: -apple-system, system-ui, sans-serif;
+	--font-family-monospace: Consolas, Menlo, Monaco, Andale Mono WT, Andale Mono, Lucida Console, Lucida Sans Typewriter, DejaVu Sans Mono, Bitstream Vera Sans Mono, Liberation Mono, Nimbus Mono L, Courier New, Courier, monospace;
+}
+
+/* Theme colors */
+:root {
+	--color-gray-20: #e0e0e0;
+	--color-gray-50: #C0C0C0;
+	--color-gray-90: #333;
+
+	--background-color: #fff;
+
+	--text-color: var(--color-gray-90);
+	--text-color-link: #1e5c8c;
+	--text-color-link-active: #5f2b48;
+	--text-color-link-visited: #060505;
+
+	--syntax-tab-size: 2;
+}
+
+@media (prefers-color-scheme: dark) {
+	:root {
+		--color-gray-20: #e0e0e0;
+		--color-gray-50: #C0C0C0;
+		--color-gray-90: #dad8d8;
+
+		/* --text-color is assigned to --color-gray-_ above */
+		--text-color-link: #1493fb;
+		--text-color-link-active: #6969f7;
+		--text-color-link-visited: #a6a6f8;
+
+		--background-color: #15202b;
+	}
+}
+
+
+/* Global stylesheet */
+* {
+	box-sizing: border-box;
+}
+
+@view-transition {
+	navigation: auto;
+}
+
+html,
+body {
+	padding: 0;
+	margin: 0 auto;
+	font-family: var(--font-family);
+	color: var(--text-color);
+	background-color: var(--background-color);
+}
+html {
+	overflow-y: scroll;
+}
+
+/* https://www.a11yproject.com/posts/how-to-hide-content/ */
+.visually-hidden {
+	clip: rect(0 0 0 0);
+	clip-path: inset(50%);
+	height: 1px;
+	overflow: hidden;
+	position: absolute;
+	white-space: nowrap;
+	width: 1px;
+}
+
+p:last-child {
+	margin-bottom: 0;
+}
+p {
+	line-height: 1.5;
+}
+
+
+main {
+	a[href] {
+		color: var(--text-color-link);
+	}
+	a[href]:visited {
+		color: var(--text-color-link-visited);
+	}
+	a[href]:hover,
+	a[href]:active {
+		color: var(--text-color-link-active);
+	}
+}
+
+main,
+footer {
+	padding: 1rem;
+}
+
+header {
+	border-bottom: 1px dashed var(--color-gray-20);
+}
+header:after {
+	content: "";
+	display: table;
+	clear: both;
+}
+
+.links-nextprev {
+	display: flex;
+	justify-content: space-between;
+	gap: .5em 1em;
+	list-style: "";
+	border-top: 1px dashed var(--color-gray-20);
+	padding: 1em 0;
+}
+.links-nextprev > * {
+	flex-grow: 1;
+}
+.links-nextprev-next {
+	text-align: right;
+}
+
+table {
+	margin: 1em 0;
+}
+table td,
+table th {
+	padding-right: 1em;
+}
+
+pre,
+code {
+	font-family: var(--font-family-monospace);
+}
+pre:not([class*="language-"]) {
+	margin: .5em 0;
+	line-height: 1.375; /* 22px /16 */
+	-moz-tab-size: var(--syntax-tab-size);
+	-o-tab-size: var(--syntax-tab-size);
+	tab-size: var(--syntax-tab-size);
+	-webkit-hyphens: none;
+	-ms-hyphens: none;
+	hyphens: none;
+	direction: ltr;
+	text-align: left;
+	white-space: pre;
+	word-spacing: normal;
+	word-break: normal;
+	overflow-x: auto;
+}
+code {
+	word-break: break-all;
+}
+
+/* Header */
+header {
+	display: flex;
+	gap: 1em .5em;
+	flex-wrap: wrap;
+	align-items: center;
+	padding: 1em;
+}
+.home-link {
+	font-size: 1em; /* 16px /16 */
+	font-weight: 700;
+}
+
+.home-link:link:not(:hover) {
+	text-decoration: none;
+}
+
+
+
+/* Posts list */
+.postlist {
+	list-style: none;
+	padding: 0;
+	padding-left: 1.5rem;
+}
+.postlist-item {
+	display: flex;
+	flex-wrap: wrap;
+	align-items: baseline;
+	counter-increment: start-from -1;
+	margin-bottom: 1em;
+}
+.postlist-item:before {
+	display: inline-block;
+	pointer-events: none;
+	content: "" counter(start-from, decimal-leading-zero) ". ";
+	line-height: 100%;
+	text-align: right;
+	margin-left: -1.5rem;
+}
+.postlist-date,
+.postlist-item:before {
+	font-size: 0.8125em; /* 13px /16 */
+	color: var(--color-gray-90);
+}
+.postlist-date {
+	word-spacing: -0.5px;
+}
+.postlist-link {
+	font-size: 1.1875em; /* 19px /16 */
+	font-weight: 700;
+	flex-basis: calc(100% - 1.5rem);
+	padding-left: .25em;
+	padding-right: .5em;
+	text-underline-position: from-font;
+	text-underline-offset: 0;
+	text-decoration-thickness: 1px;
+}
+.postlist-item-active .postlist-link {
+	font-weight: bold;
+}
+
+/* Tags */
+.post-tag {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	text-transform: capitalize;
+	font-style: italic;
+}
+.postlist-item > .post-tag {
+	align-self: center;
+}
+
+/* Tags list */
+.post-metadata {
+	display: inline-flex;
+	flex-wrap: wrap;
+	padding: 0;
+	margin: 0;
+}
+.post-metadata time {
+	margin-right: 1em;
+}
+
+.post-metadata #taglist {
+	display: inherit;
+	list-style: none;
+	gap: .5em;
+	padding-left: 0;
+	margin: 0
+}
+:root{
+/* --pagefind-ui-scale: 1;
+--pagefind-ui-primary: #034ad8;
+--pagefind-ui-text: #393939; */
+--pagefind-ui-background: #ffffff;
+--pagefind-ui-border: #eeeeee;
+--pagefind-ui-tag: #eeeeee;
+/* --pagefind-ui-border-width: 2px;
+--pagefind-ui-border-radius: 8px;
+--pagefind-ui-image-border-radius: 8px;
+--pagefind-ui-image-box-ratio: 3 / 2;
+--pagefind-ui-font: sans-serif; */
+}
+
+
+main{
+	margin-top: 0;
+  margin-left: 260px;
+  margin-right: 30px;
+  max-width: 685px;
+}
+
+header {
+  margin-left: 260px;
+  margin-right: 30px;
+  max-width: 685px;
+}
+
+
+
+.sidebar {
+    margin: 0;
+    padding: 0;
+    
+    width: 230px;
+    height: 100%;
+
+    background-color: #f1f1f1;
+    
+    position: fixed;
+    left: 0;
+    top: 0;
+    
+
+    justify-content: center;
+    overflow: auto;
+  }
+  
+  .navpages a {
+    display: block;
+    color: black;
+    padding: 16px;
+    text-decoration: none;
+  }
+   
+  .navpages a.active {
+    background-color: #04AA6D;
+    color: white;
+  }
+  
+  .navpages a:hover:not(.active) {
+    background-color: #555;
+    color: white;
+  }
+
+  #figcap {
+    justify-content: center;
+    text-align: center;
+  }
+  
+
+
+  @media screen and (max-width: 700px) {
+    #toc {
+      display: none;
+    }
+
+    main {
+      margin-left: auto;
+    }
+
+    header {
+      margin-left: auto;
+    }
+
+    .sidebar {
+      width: 100%;
+      height: auto;
+      position: sticky;
+    }
+
+    #figcap {display: none;}
+    .sidebar a {float: left;}
+    /* div.content {margin-left: 0;} */
+  }
+  
+  @media screen and (max-width: 400px) {
+    #toc {
+      display: none;
+    }
+    
+    main {
+      margin-left: auto;
+    }
+
+    header {
+      margin-left: auto;
+    }
+
+    .sidebar a {
+      text-align: center;
+      float: none;
+    }
+    #figcap {display: none;}
+  }
+
+
+  /* Nav */
+.navpages {
+	display: flex;
+	flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-around;
+
+  padding: 0;
+	margin: 0;
+	list-style: none;
+}
+.nav-item {
+  width: auto;
+	display: inline-block;
+}
+.nav-item a[href]:not(:hover) {
+	text-decoration: none;
+}
+.navpages a[href][aria-current="page"] {
+	text-decoration: underline;
+}
+
+#search {
+  font-family: var(--font-family);
+	color: var(--text-color);
+	background-color: var(--background-color);
+}
+/**
+ * okaidia theme for JavaScript, CSS and HTML
+ * Loosely based on Monokai textmate theme by http://www.monokai.nl/
+ * @author ocodia
+ */
+
+code[class*="language-"],
+pre[class*="language-"] {
+	color: #f8f8f2;
+	background: none;
+	text-shadow: 0 1px rgba(0, 0, 0, 0.3);
+	font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
+	font-size: 1em;
+	text-align: left;
+	white-space: pre;
+	word-spacing: normal;
+	word-break: normal;
+	word-wrap: normal;
+	line-height: 1.5;
+
+	-moz-tab-size: 4;
+	-o-tab-size: 4;
+	tab-size: 4;
+
+	-webkit-hyphens: none;
+	-moz-hyphens: none;
+	-ms-hyphens: none;
+	hyphens: none;
+}
+
+/* Code blocks */
+pre[class*="language-"] {
+	padding: 1em;
+	margin: .5em 0;
+	overflow: auto;
+	border-radius: 0.3em;
+}
+
+:not(pre) > code[class*="language-"],
+pre[class*="language-"] {
+	background: #272822;
+}
+
+/* Inline code */
+:not(pre) > code[class*="language-"] {
+	padding: .1em;
+	border-radius: .3em;
+	white-space: normal;
+}
+
+.token.comment,
+.token.prolog,
+.token.doctype,
+.token.cdata {
+	color: #8292a2;
+}
+
+.token.punctuation {
+	color: #f8f8f2;
+}
+
+.token.namespace {
+	opacity: .7;
+}
+
+.token.property,
+.token.tag,
+.token.constant,
+.token.symbol,
+.token.deleted {
+	color: #f92672;
+}
+
+.token.boolean,
+.token.number {
+	color: #ae81ff;
+}
+
+.token.selector,
+.token.attr-name,
+.token.string,
+.token.char,
+.token.builtin,
+.token.inserted {
+	color: #a6e22e;
+}
+
+.token.operator,
+.token.entity,
+.token.url,
+.language-css .token.string,
+.style .token.string,
+.token.variable {
+	color: #f8f8f2;
+}
+
+.token.atrule,
+.token.attr-value,
+.token.function,
+.token.class-name {
+	color: #e6db74;
+}
+
+.token.keyword {
+	color: #66d9ef;
+}
+
+.token.regex,
+.token.important {
+	color: #fd971f;
+}
+
+.token.important,
+.token.bold {
+	font-weight: bold;
+}
+.token.italic {
+	font-style: italic;
+}
+
+.token.entity {
+	cursor: help;
+}

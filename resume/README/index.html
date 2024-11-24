@@ -1,0 +1,53 @@
+
+<html><head></head><body><h1 id="resume">Résumé</h1>
+<h3 id="about">About</h3>
+<p>It is my simple resume made with HTML, CSS, JS using JSON data.<br>
+Initially, the project was written with NodeJS architecture. <a href="https://github.com/methusael13/resume-builder">View Old Project</a></p>
+<p>HTML is used for making the initial block structure of the page with some simple data, CSS is used for giving some style to the page, and JS is used to create small UI components dynamically and fill the data into the page. All the data about details related to the user is stored as a JSON object in a JS file.</p>
+<p>View it in action https://imvpn22.github.io/resume/</p>
+<h3 id="getting-started">Getting Started</h3>
+<h4 id="using-github-pages">Using GitHub Pages</h4>
+<p><em>( Make sure you have a GitHub account )</em></p>
+<ol>
+<li>Fork this repo by clicking the <strong>Fork</strong> button on the top-right corner.</li>
+<li>Go to the forked repo on your profile (It opens by default).</li>
+<li>Edit the <code>data/profile.js</code> file using GitHub online editor and fill in your data.</li>
+<li>Save above by doing <code>commit changes</code>.</li>
+<li>Open the settings of repo and enable <a href="https://pages.github.com/">github pages</a> choosing a source to <code>master</code> branch.</li>
+<li>Visit <code>https://&lt;your GitHub username&gt;.github.io/resume</code> in your browser.</li>
+<li>Additionally you can print/save the page as a PDF.</li>
+</ol>
+<h4 id="using-local-development">Using local development</h4>
+<p>If you are a web developer like me and want to run this on your local system then follow the instructions mentioned below.<br>
+The project needs to be hosted using any Web-Server like <code>apache</code>, <code>tomcat</code>, <code>http-server</code> or <code>SimpleHTTPServer</code> etc. I use <code>http-server</code> as it is very simple to use. Install <code>http-server</code> from <a href="https://www.npmjs.com/package/http-server">here</a> (NodeJS and npm need to installed first to run it).</p>
+<p>Additionally, if you are using <a href="https://code.visualstudio.com/download">VSCode</a>, the same can be done with <a href="https://www.freecodecamp.org/news/vscode-live-server-auto-refresh-browser/">Live Server extention</a>.</p>
+<ol>
+<li>Clone the repo using git or download the zip of the project on your local system.
+To clone</li>
+</ol>
+<pre class="language-bash" tabindex="0"><code class="language-bash">$ <span class="token function">git</span> clone https://github.com/imvpn22/resume.git</code></pre>
+<ol start="2">
+<li>Go into the <code>resume</code> directory and run</li>
+</ol>
+<pre class="language-bash" tabindex="0"><code class="language-bash">$ http-server</code></pre>
+<p>which will show something like</p>
+<pre class="language-bash" tabindex="0"><code class="language-bash">Starting up http-server, serving ./
+Available on:
+  http://127.0.0.1:8080
+  http://192.168.1.21:8080
+Hit CTRL-C to stop the server</code></pre>
+<ol start="3">
+<li>
+<p>Visit <code>http://localhost:8080</code> in the browser.</p>
+</li>
+<li>
+<p>Make changes in the <code>data/profile.js</code> file, and refresh the page in the browser. Additionally, you can make changes in the architecture and design of the page as well.</p>
+</li>
+<li>
+<p>Save/Print the PDF page. Your Resume is ready.</p>
+</li>
+</ol>
+<h3 id="support">Support</h3>
+<p>If you like the project idea, make sure to give it a star.
+If you want to contribute, just give me a PR.</p>
+</body></html>

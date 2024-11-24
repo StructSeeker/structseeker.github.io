@@ -5,11 +5,23 @@
   <subtitle>Blog Description Placeholder</subtitle>
   <link href="https://structseeker.github.io/feed/feed.xml" rel="self" />
   <link href="https://structseeker.github.io/" />
-  <updated>2018-09-30T00:00:00Z</updated>
+  <updated>2024-11-14T00:00:00Z</updated>
   <id>https://structseeker.github.io/</id>
   <author>
     <name>StructSeeker</name>
   </author>
+  <entry>
+    <title>群体极化的两个理论</title>
+    <link href="https://structseeker.github.io/blog/thought/%E7%BE%A4%E4%BD%93%E6%9E%81%E5%8C%96%E7%9A%84%E4%B8%A4%E4%B8%AA%E7%90%86%E8%AE%BA/" />
+    <updated>2024-11-14T00:00:00Z</updated>
+    <id>https://structseeker.github.io/blog/thought/%E7%BE%A4%E4%BD%93%E6%9E%81%E5%8C%96%E7%9A%84%E4%B8%A4%E4%B8%AA%E7%90%86%E8%AE%BA/</id>
+    <content type="html">
+&lt;html&gt;&lt;head&gt;&lt;/head&gt;&lt;body&gt;&lt;p&gt;网络上常见两种关于群体对立的观点：一者为温和掩护极端：即认为对立群体观点光谱倾向温和的群体。无论有意无意，事实上起到了掩护极端观点的作用；一者为自我实现的语言：如果群体中偏温和的观点仍不能被外界接受，那么只会推动群体进一步极端化。&lt;/p&gt;
+&lt;p&gt;两种理论都常有印证的例子。就前者，持相同立场的“理性者”和“狂热者”往往采用不同话语（术）逻辑推导出同一立场。即便两者在实践方法和论述逻辑等方面有差异，也少见两者互相驳斥。同一立场中的多个派系事实上的确扩大了观点受众的覆盖面。而就后者，在地缘政治中温和派政策反受外界冷遇，反推强硬派上台的例子更屡见不鲜。&lt;/p&gt;
+&lt;p&gt;这两种观点的对立在大众宣传，在己，也在敌。灵活的执政手腕或能让敌我大众的的观点产生错位而阻力最小化地推进议程，这或许算狗哨政治的一种。&lt;/p&gt;
+&lt;/body&gt;&lt;/html&gt;
+</content>
+  </entry>
   <entry>
     <title>This is my fourth post</title>
     <link href="https://structseeker.github.io/blog/fourthpost/" />
@@ -386,6 +398,8 @@ mjx-c.mjx-c31::before {
   padding: 0.666em 0.5em 0 0;
   content: &quot;1&quot;;
 }
+
+
 
 
 
